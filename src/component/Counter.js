@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { increment, decrement, incrementByCount }  from './action'
+import { increment, decrement, incrementByCount }  from '../action'
 
 class Counter extends Component {
     render () {
-      return (
+        return (
           <div>
               <div>{this.props.count}</div>
               <button onClick={this.props.increment}>INCREMENT</button>
               <button onClick={this.props.decrement}>DECREMENT</button>
               <button onClick={this.props.incrementByFive}>DECREMENT</button>
           </div>
-      )
+        )
     }
 }
 
 const mapStateToProps = (state) => ({
-    count: state.count
+    count: state.counter.count
 })
 
 const mapDispatchToProps = (dispatch) => ({
