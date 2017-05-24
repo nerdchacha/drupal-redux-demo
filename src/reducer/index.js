@@ -1,24 +1,32 @@
-import { INCREMENT, DECREMENT, INCREMENTBYCOUNT } from '../action'
+import {
+    FETCH_USERS_STARTED,
+    FETCH_USERS_SUCCESS,
+    FETCH_USERS_FAILED
+} from '../action'
 
 const initialState = {
-    count: 0
+    isFetching: false,
+    list: [],
 }
 
-export default function reducer (state = initialState, action) {
+export default function (state = initialState, action) {
     switch(action.type) {
-        case INCREMENT:
+        case FETCH_USERS_STARTED:
             return {
-                count: state.count + 1
+                isFetching: true,
+                list: state.list
             }
-        case DECREMENT:
+        case FETCH_USERS_SUCCESS:
             return {
-                count: state.count - 1
+                isFetching: false,
+                list: action.data,
             }
-        case INCREMENTBYCOUNT:
+        case FETCH_USERS_FAILED:
             return {
-                count: state.count + action.count
+                isFetching: false,
+                list: state.list,
             }
         default:
-            return initialState
+            return state
     }
 }

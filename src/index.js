@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Counter from './Counter';
+import UserList from './components/UserList';
 import { Provider } from 'react-redux'
 import store from './store'
 
 const App = (
     <Provider store={store}>
-        <Counter />
+        <UserList />
     </Provider>
 )
 
